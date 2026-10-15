@@ -35,6 +35,7 @@ td{padding:12px 8px;border-bottom:1px solid var(--line)}
 footer{font:12px var(--m);color:var(--mut)}
 @media (max-width:860px){.hero,.three{grid-template-columns:1fr}.k{grid-template-columns:repeat(2,1fr)}}
 .lock{max-width:420px}.lock input{font:16px var(--t);padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg)}.lock button{font:600 15px var(--d);padding:12px;border:0;border-radius:999px;background:var(--blu);color:#fff;cursor:pointer}.lock :focus-visible{outline:2px solid var(--blu);outline-offset:2px}.err{color:var(--bad);font-size:13px}#dash{display:grid;gap:24px}
+[hidden]{display:none!important}
 </style>
 <div class="w">
 <header><div><div class="lab">ADevolution S.L. · Stripe live</div><h1>Abbonamenti<span>.</span></h1></div><div class="lab">Aggiornato il 2026-10-15 · ogni lunedì</div></header>
@@ -43,6 +44,6 @@ footer{font:12px var(--m);color:var(--mut)}
 document.getElementById('lk').addEventListener('submit',async e=>{e.preventDefault();const er=document.getElementById('er');er.hidden=true;
 try{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(document.getElementById('pw').value),'PBKDF2',false,['deriveKey']);
 const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:d(E.s),iterations:250000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
-const p=await crypto.subtle.decrypt({name:'AES-GCM',iv:d(E.i)},key,d(E.c));document.getElementById('dash').innerHTML=new TextDecoder().decode(p);e.target.hidden=true}catch(x){er.hidden=false}});</script>
+const p=await crypto.subtle.decrypt({name:'AES-GCM',iv:d(E.i)},key,d(E.c));document.getElementById('dash').innerHTML=new TextDecoder().decode(p);e.target.remove()}catch(x){er.hidden=false}});</script>
 <footer>Fonte: Stripe, account ADevolution - Official (live). Importi IVA esclusa. Annuali e trimestrali ripartiti al mese.</footer>
 </div>
